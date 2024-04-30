@@ -1,8 +1,21 @@
-package com.hasan.sprindemo;
+package com.hasan.sprindemo.student;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+
+@Entity
+@Table
 public class Student {
+
+    @Id
+    @GeneratedValue
+    private Integer id;
 
     private String firstname;
 
@@ -10,22 +23,34 @@ public class Student {
 
     private LocalDate dateOfBirth;
 
+    @Column(unique = true)
     private String email;
 
+    @Transient
     private int age;
 
+    public Student() {
+
+    }
+
     public Student(
+            Integer id,
             String firstname,
             String lastname,
             LocalDate dateOfBirth,
             String email,
             int age) {
+        this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.age = age;
 
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public int getAge() {
@@ -46,6 +71,10 @@ public class Student {
 
     public String getLastname() {
         return lastname;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public void setAge(int age) {

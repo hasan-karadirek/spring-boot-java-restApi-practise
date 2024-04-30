@@ -1,4 +1,4 @@
-package com.hasan.sprindemo;
+package com.hasan.sprindemo.student;
 
 import java.util.List;
 
