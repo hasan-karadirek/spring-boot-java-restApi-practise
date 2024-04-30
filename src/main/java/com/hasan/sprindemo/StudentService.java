@@ -1,13 +1,16 @@
 package com.hasan.sprindemo;
 
-import java.time.LocalDate;
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+public interface StudentService {
 
-@Service
-public class StudentService {
-    public List<Student> findAllStudents() {
-        return List.of(new Student("hasan2", "karadirek", LocalDate.now(), "hasankaradirek3@gmail.com", 34));
-    }
+    Student save(Student s);
+
+    Student update(Student s);
+
+    Student findByEmail(String email);
+
+    List<Student> findAllStudents();
+
+    void delete(String email);
 }
